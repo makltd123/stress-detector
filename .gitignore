@@ -1,0 +1,17 @@
+# Generated: data by generate_data.py, model by train_model.py
+data/
+artifacts/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.env
+
+# Frontend
+node_modules/
+frontend/dist/
+
+# Tools
+.mimocode/

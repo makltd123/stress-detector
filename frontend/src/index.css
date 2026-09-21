@@ -1,0 +1,98 @@
+:root {
+  --bg: #0f1420;
+  --panel: #161d2e;
+  --panel-2: #1c2438;
+  --border: #26304a;
+  --text: #dbe3f4;
+  --muted: #8b96ad;
+  --accent: #5aa9ff;
+  --high: #ff6b6b;
+  --medium: #ffb84d;
+  --low: #58d68d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+}
+
+.container { max-width: 1180px; margin: 0 auto; padding: 24px; }
+
+header.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; margin-bottom: 20px; flex-wrap: wrap;
+}
+h1 { font-size: 20px; margin: 0; letter-spacing: .2px; }
+h1 span { color: var(--muted); font-weight: 400; font-size: 13px; margin-left: 10px; }
+
+.actions { display: flex; gap: 10px; align-items: center; }
+button.btn {
+  background: var(--accent); color: #08111f; border: none; border-radius: 8px;
+  padding: 9px 16px; font-weight: 600; cursor: pointer; font-size: 13px;
+}
+button.btn.secondary { background: var(--panel-2); color: var(--text); border: 1px solid var(--border); }
+button.btn:disabled { opacity: .55; cursor: wait; }
+button.btn:hover:not(:disabled) { filter: brightness(1.08); }
+
+.chips { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.chip {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+  padding: 10px 18px; min-width: 150px;
+}
+.chip .num { font-size: 22px; font-weight: 700; }
+.chip .lbl { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+.toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+select {
+  background: var(--panel-2); color: var(--text); border: 1px solid var(--border);
+  border-radius: 7px; padding: 6px 10px; font-size: 13px;
+}
+
+table.tbl { width: 100%; border-collapse: collapse; background: var(--panel);
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.tbl th {
+  text-align: left; padding: 10px 14px; color: var(--muted); font-size: 12px;
+  text-transform: uppercase; letter-spacing: .06em; border-bottom: 1px solid var(--border);
+  background: var(--panel-2); position: sticky; top: 0;
+}
+.tbl td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.tbl tr.client-row { cursor: pointer; }
+.tbl tr.client-row:hover td { background: rgba(90,169,255,.06); }
+.tbl tr.expanded td { border-bottom: none; }
+.num-cell { font-variant-numeric: tabular-nums; }
+
+.badge { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; display: inline-block; }
+.badge.high   { background: rgba(255,107,107,.15); color: var(--high); }
+.badge.medium { background: rgba(255,184,77,.15);  color: var(--medium); }
+.badge.low    { background: rgba(88,214,141,.14);  color: var(--low); }
+.badge.none   { background: var(--panel-2); color: var(--muted); }
+
+.score-bar { position: relative; background: var(--panel-2); height: 8px; border-radius: 6px; width: 130px; overflow: hidden; }
+.score-bar i { position: absolute; inset: 0 auto 0 0; border-radius: 6px; }
+
+.detail td { background: var(--panel-2); }
+.detail-card { display: grid; grid-template-columns: 1.6fr 1fr; gap: 22px; padding: 16px 18px 20px; }
+@media (max-width: 900px) { .detail-card { grid-template-columns: 1fr; } }
+.detail-card h3 { margin: 0 0 10px; font-size: 14px; }
+.chart-box { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
+
+.factors { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.factors li {
+  background: var(--panel); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+  border-radius: 8px; padding: 9px 12px; line-height: 1.45; font-size: 13px;
+}
+
+.truth {
+  margin-top: 12px; border: 1px dashed rgba(255,107,107,.55); border-radius: 8px;
+  padding: 8px 12px; color: var(--high); font-size: 12.5px;
+}
+
+.meta-line { color: var(--muted); font-size: 12px; margin-top: 10px; }
+
+.empty { padding: 40px; text-align: center; color: var(--muted); }
+.err { color: var(--high); padding: 12px 0; }
